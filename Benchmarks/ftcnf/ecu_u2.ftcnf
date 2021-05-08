@@ -753,7 +753,7 @@
 <=(x1, xp), <(xp, x2), <=(y1, xrpm), <(xrpm, y2) || KPa(xtp, xp), Rpm(xtr, xrpm), IgnTable(x1, x2, y1, y2, z) -> IgnDeg1(xtp, xtr, xp, xrpm, z).
 <(x,60) || IgnDeg1(xtp, xtr, xp, xrpm, z1), Tmp(x,x) -> IndnDeg2(xtp, xtr, x, xp, xrpm, x, z1).
 >=(z1,y1), <=(x1,x), <(x,x2) || IgnDeg1(xtp, xtr, xp, xrpm, z1), Tmp(x,x), TempIgnTable(x1,x2,y1,y2) -> IndnDeg2(xtp, xtr, x, xp, xrpm, x, y2).
-<=(z2, z), <=(-30,x), <=(x, 130),<=(x1, xp), <(xp, x2), <=(y1, xrpm), <(xrpm, y2)  || IndnDeg2(xtp, xtr, x, xp, xrpm, x, z2), KPa(xtp, xp), Rpm(xtr, xrpm), IgnTable(x1, x2, y1, y2, z) -> ResultDeg(xrpm).
+<=(z2, z), <=(x1, xp), <(xp, x2), <=(y1, xrpm), <(xrpm, y2)  || IndnDeg2(xtp, xtr, x, xp, xrpm, x, z2), IgnTable(x1, x2, y1, y2, z) -> ResultDeg(xrpm).
 g <=(0,xrpm), <=(xrpm,8580)  || -> ResultDeg(xrpm).
 
 

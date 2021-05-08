@@ -765,7 +765,7 @@
 (forall ((x0 Real) (x1 Real) (x2 Real) (x3 Real) (x4 Real) (x5 Real) (x6 Real) (x7 Real) (x8 Real) )(=> (and (<= x0 x1) (< x1 x2) (<= x3 x4) (< x4 x5) (KPa x6 x1) (Rpm x7 x4) (IgnTable x0 x2 x3 x5 x8) ) (IgnDeg1 x6 x7 x1 x4 x8) ))
 (forall ((x0 Real) (x1 Real) (x2 Real) (x3 Real) (x4 Real) (x5 Real) )(=> (and (< x0 60) (IgnDeg1 x1 x2 x3 x4 x5) (Tmp x0 x0) ) (IndnDeg2 x1 x2 x0 x3 x4 x0 x5) ))
 (forall ((x0 Real) (x1 Real) (x2 Real) (x3 Real) (x4 Real) (x5 Real) (x6 Real) (x7 Real) (x8 Real) (x9 Real) )(=> (and (>= x0 x1) (<= x2 x3) (< x3 x4) (IgnDeg1 x5 x6 x7 x8 x0) (Tmp x3 x3) (TempIgnTable x2 x4 x1 x9) ) (IndnDeg2 x5 x6 x3 x7 x8 x3 x9) ))
-(forall ((x0 Real) (x1 Real) (x2 Real) (x3 Real) (x4 Real) (x5 Real) (x6 Real) (x7 Real) (x8 Real) (x9 Real) (x10 Real) )(=> (and (<= x0 x1) (<= (- 30) x2) (<= x2 130) (<= x3 x4) (< x4 x5) (<= x6 x7) (< x7 x8) (IndnDeg2 x9 x10 x2 x4 x7 x2 x0) (KPa x9 x4) (Rpm x10 x7) (IgnTable x3 x5 x6 x8 x1) ) (ResultDeg x7) ))
+(forall ((x0 Real) (x1 Real) (x2 Real) (x3 Real) (x4 Real) (x5 Real) (x6 Real) (x7 Real) (x8 Real) (x9 Real) (x10 Real) )(=> (and (<= x0 x1) (<= x2 x3) (< x3 x4) (<= x5 x6) (< x6 x7) (IndnDeg2 x8 x9 x10 x3 x6 x10 x0) (IgnTable x2 x4 x5 x7 x1) ) (ResultDeg x6) ))
 (=> (> 0 GC0) false)
 (=> (> GC0 8580) false)
 (=> (ResultDeg GC0) false)
