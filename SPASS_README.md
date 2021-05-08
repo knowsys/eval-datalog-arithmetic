@@ -1,10 +1,10 @@
 ## Toolchain
 
-The different steps in our toolchain have to be executed manually. In the first step SPASS-SPL transform an HBS(SLR)PP problem in the FTCNF language into an equisatisfiable HBS problem in the datalog language. TODO
+The different steps in our toolchain have to be executed manually. In the first step SPASS-SPL transform an HBS(SLR)PP problem in the FTCNF language into an equisatisfiable HBS problem in the Datalog language, using the [Rulewerk rule syntax](https://github.com/knowsys/rulewerk/wiki/Rule-syntax-grammar). TODO
 
 The bash commands look as follows:
 
-    ./SPASS-SPL -d -n <file>.ftcnf > <file>.datalog
+    ./SPASS-SPL -d -n <file>.ftcnf > <file>.rls
     TODO
 
 ## FTCNF Language
