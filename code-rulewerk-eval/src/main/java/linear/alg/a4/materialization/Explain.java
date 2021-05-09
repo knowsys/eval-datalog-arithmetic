@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.semanticweb.rulewerk.core.model.api.PositiveLiteral;
 import org.semanticweb.rulewerk.core.reasoner.KnowledgeBase;
 import org.semanticweb.rulewerk.parser.ParsingException;
-import org.semanticweb.rulewerk.parser.RuleParser;
 import org.semanticweb.rulewerk.reasoner.vlog.VLogReasoner;
 
 public class Explain {
@@ -16,9 +15,10 @@ public class Explain {
 		this.simpleReasoning = simpleReasoning;
 	}
 
-	public void answerIfNotEntailed(final String inputKBFilePath, final String toQuery, final String outputFilePath,
-			final String queryToExplain) throws ParsingException, IOException {
-		final PositiveLiteral query = RuleParser.parsePositiveLiteral(toQuery);
+	public void answerIfNotEntailed(final String inputKBFilePath, final String queryToCheckEntailent,
+			final String outputFilePath, final String queryToAnswerIfNotEntailed) throws ParsingException, IOException {
+
+		final PositiveLiteral query = this.simpleReasoning.parseQuery(queryToCheckEntailent);
 
 		final KnowledgeBase kb = this.simpleReasoning.parseKB(inputKBFilePath);
 
@@ -28,10 +28,11 @@ public class Explain {
 
 			boolean isEntailed = this.simpleReasoning.isEntailed(reasoner, query);
 			if (!isEntailed) {
-				System.out.println("Writing query answers to " + queryToExplain + " to file " + outputFilePath);
+				System.out.println(
+						"Writing query answers to " + queryToAnswerIfNotEntailed + " to file " + outputFilePath);
 
-				this.simpleReasoning.printQueryAnswerFacts(RuleParser.parsePositiveLiteral(queryToExplain), kb,
-						reasoner, outputFilePath);
+				this.simpleReasoning.printQueryAnswerFacts(this.simpleReasoning.parseQuery(queryToAnswerIfNotEntailed),
+						kb, reasoner, outputFilePath);
 			}
 		}
 	}

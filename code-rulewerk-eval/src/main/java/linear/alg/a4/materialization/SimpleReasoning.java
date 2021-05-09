@@ -20,7 +20,7 @@ import org.semanticweb.rulewerk.parser.RuleParser;
 import org.semanticweb.rulewerk.reasoner.vlog.VLogReasoner;
 
 public class SimpleReasoning {
-	
+
 	private boolean debug;
 	private String debugOutput;
 
@@ -37,15 +37,24 @@ public class SimpleReasoning {
 		return kb;
 	}
 
+	public PositiveLiteral parseQuery(String query) throws ParsingException {
+		final long startPars = System.currentTimeMillis();
+		final PositiveLiteral literal = RuleParser.parsePositiveLiteral(query);
+		System.out.println(
+				" - Parsing query " + query + "  duration: " + (System.currentTimeMillis() - startPars) + " ms");
+		return literal;
+	}
+
 	public VLogReasoner createReasoner(KnowledgeBase kb) {
 		long startCreateReas = System.currentTimeMillis();
 		VLogReasoner reasoner = new VLogReasoner(kb);
-		
+
 		if (this.debug) {
 			reasoner.setLogLevel(LogLevel.DEBUG);
 			reasoner.setLogFile(this.debugOutput);
+			System.out.println("VLog Reasoner DEBUG log written to " + this.debugOutput);
 		}
-		
+
 		System.out.println(
 				" - Creating reasoner object duration: " + (System.currentTimeMillis() - startCreateReas) + " ms");
 		return reasoner;
@@ -93,8 +102,8 @@ public class SimpleReasoning {
 				+ (System.currentTimeMillis() - startQ) + " ms");
 	}
 
-	private void answerQuery(Writer writer, VLogReasoner reasoner, final Serializer serializer,
-			PositiveLiteral query) throws IOException {
+	private void answerQuery(Writer writer, VLogReasoner reasoner, final Serializer serializer, PositiveLiteral query)
+			throws IOException {
 		long startQ = System.currentTimeMillis();
 
 		System.out.println("Answering query: " + query);
