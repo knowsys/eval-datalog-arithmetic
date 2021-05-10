@@ -1,4 +1,4 @@
-package linear.alg.a4;
+package eval_datalog_arithmetic;
 
 import static org.junit.Assert.assertTrue;
 
@@ -10,7 +10,7 @@ import org.semanticweb.rulewerk.parser.ParsingException;
 import org.semanticweb.rulewerk.parser.RuleParser;
 import org.semanticweb.rulewerk.reasoner.vlog.VLogReasoner;
 
-import linear.alg.a4.materialization.SimpleReasoning;
+import eval_datalog_arithmetic.SimpleReasoning;
 
 public class TestGoalDerived {
 

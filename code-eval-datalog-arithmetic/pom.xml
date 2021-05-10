@@ -3,25 +3,29 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>linear.alg</groupId>
-	<artifactId>a4</artifactId>
+	<groupId>knowsys</groupId>
+	<artifactId>eval-datalog-arithmetic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>a4</name>
+	<name>eval-datalog-arithmetic</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<rulewerk.version>0.8.0-SNAPSHOT</rulewerk.version>
 	</properties>
+
 	<dependencies>
+
+		<!-- Parsing Rulewerk syntax -->
 		<dependency>
 			<groupId>org.semanticweb.rulewerk</groupId>
 			<artifactId>rulewerk-parser</artifactId>
 			<version>${rulewerk.version}</version>
 		</dependency>
 
+		<!-- Rulewek API for Datalog Reasoner VLog -->
 		<dependency>
 			<groupId>org.semanticweb.rulewerk</groupId>
 			<artifactId>rulewerk-vlog</artifactId>

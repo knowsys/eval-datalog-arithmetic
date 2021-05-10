@@ -1,4 +1,4 @@
-package linear.alg.a4.materialization;
+package eval_datalog_arithmetic;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
