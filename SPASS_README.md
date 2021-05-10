@@ -1,11 +1,12 @@
 ## Toolchain
 
-The different steps in our toolchain have to be executed manually. In the first step SPASS-SPL transform an HBS(SLR)PP problem in the FTCNF language into an equisatisfiable HBS problem in the Datalog language, using the [Rulewerk rule syntax](https://github.com/knowsys/rulewerk/wiki/Rule-syntax-grammar). TODO
+The different steps in our toolchain have to be executed manually. In the first step SPASS-SPL transform an HBS(SLR)PP problem in the FTCNF language into an equisatisfiable HBS problem in the Datalog language, using the [Rulewerk rule syntax](https://github.com/knowsys/rulewerk/wiki/Rule-syntax-grammar). 
 
 The bash commands look as follows:
 
     ./SPASS-SPL -d -n <file>.ftcnf > <file>.rls
-    TODO
+
+Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-rulewerk-eval) that uses [Rulewrk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine  [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. If no Goal fact is derived, an alternative given query is answered to provide an explanation. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds.
 
 ## FTCNF Language
 FTCNF is the input language of SPASS-SPL. It is possible to express any BS(LA) formula in this language. SPASS-SPL has 3 sorts: "R" for Real, "I" for Integer, and "F", which stands for a finite set whose elements are exactly the constants of the sort. Default sort for all variables and constants is "R". Default sort for all predicates with an argument of sort "R" or "I" is "R". Default sort for all predicates with an argument of sort "F" is "F".
