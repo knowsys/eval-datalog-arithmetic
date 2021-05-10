@@ -1,38 +1,36 @@
 package eval_datalog_arithmetic;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.semanticweb.rulewerk.core.model.api.PositiveLiteral;
 import org.semanticweb.rulewerk.core.reasoner.KnowledgeBase;
+import org.semanticweb.rulewerk.core.reasoner.Reasoner;
 import org.semanticweb.rulewerk.parser.ParsingException;
-import org.semanticweb.rulewerk.reasoner.vlog.VLogReasoner;
 
 public class Explain {
 
-	private SimpleReasoning simpleReasoning;
+	private final TimedReasoner timedReasoner;
 
-	public Explain(SimpleReasoning simpleReasoning) {
-		this.simpleReasoning = simpleReasoning;
+	public Explain(TimedReasoner simpleReasoning) {
+		this.timedReasoner = simpleReasoning;
 	}
 
-	public void answerIfNotEntailed(final String inputKBFilePath, final String queryToCheckEntailent,
-			final String outputFilePath, final String queryToAnswerIfNotEntailed) throws ParsingException, IOException {
+	public void answerIfNotEntailed(final FileInputStream inputKB, final String queryToCheckEntailent,
+			final String queryToAnswerIfNotEntailed) throws ParsingException, IOException {
 
-		final PositiveLiteral query = this.simpleReasoning.parseQuery(queryToCheckEntailent);
+		final PositiveLiteral query = this.timedReasoner.parseQuery(queryToCheckEntailent);
 
-		final KnowledgeBase kb = this.simpleReasoning.parseKB(inputKBFilePath);
+		final KnowledgeBase kb = this.timedReasoner.parseKB(inputKB);
 
-		try (VLogReasoner reasoner = this.simpleReasoning.createReasoner(kb)) {
+		try (Reasoner reasoner = this.timedReasoner.createReasoner(kb)) {
 
-			this.simpleReasoning.reason(reasoner);
+			this.timedReasoner.reason(reasoner);
 
-			boolean isEntailed = this.simpleReasoning.isEntailed(reasoner, query);
+			boolean isEntailed = this.timedReasoner.isEntailed(reasoner, query);
 			if (!isEntailed) {
-				System.out.println(
-						"Writing query answers to " + queryToAnswerIfNotEntailed + " to file " + outputFilePath);
-
-				this.simpleReasoning.printQueryAnswerFacts(this.simpleReasoning.parseQuery(queryToAnswerIfNotEntailed),
-						kb, reasoner, outputFilePath);
+				this.timedReasoner.writeQueryAnswerFacts(this.timedReasoner.parseQuery(queryToAnswerIfNotEntailed),
+						kb, reasoner);
 			}
 		}
 	}
