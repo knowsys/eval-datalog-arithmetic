@@ -6,7 +6,16 @@ The bash commands look as follows:
 
     ./SPASS-SPL -d -n <file>.ftcnf > <file>.rls
 
-Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-rulewerk-eval) that uses [Rulewrk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine  [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. If no Goal fact is derived, an alternative given query is answered to provide an explanation. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds.
+Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) that uses [Rulewrk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine  [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. If no Goal fact is derived, an alternative given query is answered to provide an explanation. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds. 
+
+This project uses the `0.8.0-SNAPSHOT` version of `rulewek-parser` and `rulewerk-vlog` modules, as it can be seen in the pom.xml file. In turn, `rulewerk-vlog` was used with a locally built `vlog-java` jar from the [VLog](https://github.com/karmaresearch/vlog) master branch at commit tag [ca0669424963765d08a63a29a0d89e27cf33ef51](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51).
+
+TODO explain how to obtain that (build-vlog script)
+TODO "release jar" for linux
+
+TODO explain how to run the code
+
+TODO alternative with client
 
 ## FTCNF Language
 FTCNF is the input language of SPASS-SPL. It is possible to express any BS(LA) formula in this language. SPASS-SPL has 3 sorts: "R" for Real, "I" for Integer, and "F", which stands for a finite set whose elements are exactly the constants of the sort. Default sort for all variables and constants is "R". Default sort for all predicates with an argument of sort "R" or "I" is "R". Default sort for all predicates with an argument of sort "F" is "F".
