@@ -47,21 +47,26 @@ public class Main {
 	}
 
 	public static void processArgs(String[] args) {
-		if (args.length < 3) {
+		try {
+			option = Option.valueOf(args[0]);
+			inputKBFilePath = args[1];
+			debug = Boolean.parseBoolean(args[2]);
+
+			if (option == Option.CHECK_QUERY) {
+				queryToCheckEntailment = args[3];
+			}
+		} catch (Exception e) {
 			printHelp();
-		}
-
-		option = Option.valueOf(args[0]);
-		inputKBFilePath = args[1];
-		debug = Boolean.parseBoolean(args[2]);
-
-		if (option == Option.CHECK_QUERY) {
-			queryToCheckEntailment = args[3];
+			throw new IllegalArgumentException(e);
 		}
 	}
 
 	private static void printHelp() {
 		// TODO
+		System.out.println("Experiment  options: ");
+		System.out.println(
+				" - " + Option.CHECK_QUERY + " <input .rls file path> <boolean debug> <query to check entailment>");
+		System.out.println(" - " + Option.INFERENCES + " <input .rls file path> <boolean debug>");
 	}
 
 	public static void checkEntailment(final TimedReasoner timedReasoner, final String queryToCheckEntailent,

@@ -54,7 +54,7 @@ public class TimedReasoner {
 		return reasoner;
 	}
 
-	public void reason(Reasoner reasoner) throws IOException {
+	public void reason(final Reasoner reasoner) throws IOException {
 		final Timer timer = new Timer();
 
 		System.out.println(Calendar.getInstance().getTime() + ": Start reasoning.");
