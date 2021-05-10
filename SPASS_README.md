@@ -46,4 +46,4 @@ SPASS-SPL is not yet able to recognize and handle theory constraints beyond simp
 
 ## Transformation of FTCNF problems into other input languages
 
-SPASS-SPL can trasform ftcnf problems into the SMT-LIB 2.6 and into the CHC competition format. The respective options to do so are `-s` and `-c`.
+SPASS-SPL can transform ftcnf problems into the SMT-LIB 2.6 and into the CHC competition format. The respective options to do so are `-s` and `-c`.
