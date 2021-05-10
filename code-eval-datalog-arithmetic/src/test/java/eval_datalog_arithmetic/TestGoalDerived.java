@@ -13,19 +13,19 @@ import org.semanticweb.rulewerk.parser.RuleParser;
 
 public class TestGoalDerived {
 
-	TimedReasoner simpleReasoning = new TimedReasoner();
+	TimedReasoner timedReasoner = new TimedReasoner();
 
 	@Test
 	public void testGoalSimplified() throws ParsingException, IOException {
 		final String inputKBFilePath = "src/test/resources/simplified_ign_exist_yes.datalog";
 
-		final KnowledgeBase kb = this.simpleReasoning.parseKB(new FileInputStream(inputKBFilePath));
+		final KnowledgeBase kb = this.timedReasoner.parseKB(new FileInputStream(inputKBFilePath));
 
-		try (Reasoner reasoner = this.simpleReasoning.createReasoner(kb)) {
+		try (Reasoner reasoner = this.timedReasoner.createReasoner(kb)) {
 
-			this.simpleReasoning.reason(reasoner);
+			this.timedReasoner.reason(reasoner);
 
-			assertTrue(this.simpleReasoning.isEntailed(reasoner, RuleParser.parsePositiveLiteral("Goal(?x)")));
+			assertTrue(this.timedReasoner.isEntailed(reasoner, RuleParser.parsePositiveLiteral("Goal(?x)")));
 		}
 	}
 
@@ -33,13 +33,13 @@ public class TestGoalDerived {
 	public void testGoal() throws ParsingException, IOException {
 		final String inputKBFilePath = "src/test/resources/ign_exist_yes.datalog";
 
-		final KnowledgeBase kb = this.simpleReasoning.parseKB(new FileInputStream(inputKBFilePath));
+		final KnowledgeBase kb = this.timedReasoner.parseKB(new FileInputStream(inputKBFilePath));
 
-		try (Reasoner reasoner = this.simpleReasoning.createReasoner(kb)) {
+		try (Reasoner reasoner = this.timedReasoner.createReasoner(kb)) {
 
-			this.simpleReasoning.reason(reasoner);
+			this.timedReasoner.reason(reasoner);
 
-			assertTrue(this.simpleReasoning.isEntailed(reasoner, RuleParser.parsePositiveLiteral("Goal(?x)")));
+			assertTrue(this.timedReasoner.isEntailed(reasoner, RuleParser.parsePositiveLiteral("Goal(?x)")));
 		}
 	}
 }

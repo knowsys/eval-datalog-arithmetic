@@ -54,7 +54,7 @@ public class TimedReasoner {
 		return reasoner;
 	}
 
-	public void reason(Reasoner reasoner) throws IOException {
+	public void reason(final Reasoner reasoner) throws IOException {
 		final Timer timer = new Timer();
 
 		System.out.println(Calendar.getInstance().getTime() + ": Start reasoning.");
@@ -63,15 +63,7 @@ public class TimedReasoner {
 		timer.printDuration(" - Reasoning (materialisation)");
 	}
 
-	public void writeInferences(final FileInputStream kbFile) throws IOException, ParsingException {
-		final KnowledgeBase kb = this.parseKB(kbFile);
-		try (Reasoner reasoner = this.createReasoner(kb)) {
-			this.reason(reasoner);
-			this.writeInferences(reasoner);
-		}
-	}
-
-	private void writeInferences(final Reasoner reasoner) throws IOException, FileNotFoundException {
+	public void writeInferences(final Reasoner reasoner) throws IOException, FileNotFoundException {
 		final Timer timer = new Timer();
 
 		System.out.println("Writing all inferences to " + this.outputFilePath);
