@@ -42,12 +42,12 @@ which will output all these facts in Datalog syntax in a new `.out` file.
 To summarize, the **sequence of bash commands** to execute our tool chain looks as follows:
 
     ./bin/SPASS-SPL -d -n <file>.ftcnf > <file>.rls
-    java -jar code-eval-datalog-arithmetic_linux.jar CHECK_QUERY <file>.rls false "Goal(?x0)"
+    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY <file>.rls false "Goal(?x0)"
 
 For instance, for the file `Benchmarks/ftcnf/ecu_u1.ftcnf` the commands would be:
 
     ./bin/SPASS-SPL -d -n Benchmarks/ftcnf/ecu_u1.ftcnf > Benchmarks/ftcnf/ecu_u1.rls
-    java -jar code-eval-datalog-arithmetic_linux.jar CHECK_QUERY Benchmarks/ftcnf/ecu_u1.rls false "Goal(?x0)"
+    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY Benchmarks/ftcnf/ecu_u1.rls false "Goal(?x0)"
     
 We also precomputed all problems into the various formats and they can be executed directly. For instance, `Benchmarks/datalog/ecu_u1.rls` is the output of `./bin/SPASS-SPL -d -n Benchmarks/ftcnf/ecu_u1.ftcnf`
 
