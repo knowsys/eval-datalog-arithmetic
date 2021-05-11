@@ -23,7 +23,7 @@ Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/
 
 To reproduce our experiments, one can run this jar with the following arguments:
 
-    CHECK_QUERY <path-to-example.rls> false "Goal(?x0)"
+    CHECK_QUERY <file>.rls false "Goal(?x0)"
 
 For example, for evaluating Benchmark [lc_e1](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/Benchmarks/datalog/lc_e1.rls), one must run
     
@@ -32,12 +32,12 @@ For example, for evaluating Benchmark [lc_e1](https://github.com/knowsys/eval-da
 In our experiments we ran Java with the `-Xms8G` option, but the default reserved memory for Java also suffices.
 
 For debugging purposes, one can run this program with options
-```CHECK_QUERY <path-to-example.rls> true <Goal-query>```
+```CHECK_QUERY <file>.rls true "Goal(?x0)"```
 which will output the [VLog](https://github.com/karmaresearch/vlog) engine log at DEBUG level in new `.DEBUG` file.
 
-For checking all (implicit and explicit) facts derived after materialisation, one can run
-```INFERENCES <path-to-example.rls> <true|false>```
-which will output all these facts in Datalog syntax in a new `.out` file.
+For checking all (implicit and explicit) facts derived during materialisation, one can run
+```INFERENCES <file>.rls <true|false>```
+which will output all these facts in Datalog syntax in a new `.out` file. If the third argument is `true`, a `.DEBUG` file will also be created. 
 
 To summarize, the **sequence of bash commands** to execute our tool chain looks as follows:
 
