@@ -8,9 +8,8 @@ The bash commands look as follows:
 
 Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) that uses [Rulewrk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine  [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. If no Goal fact is derived, an alternative given query is answered to provide an explanation. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds. 
 
-This project uses the `0.8.0-SNAPSHOT` version of `rulewek-parser` and `rulewerk-vlog` modules, as it can be seen in the pom.xml file. In turn, `rulewerk-vlog` was used with a locally built `vlog-java` jar from the [VLog](https://github.com/karmaresearch/vlog) master branch at commit tag [ca0669424963765d08a63a29a0d89e27cf33ef51](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51).
+This project uses the `0.8.0-SNAPSHOT` version of `rulewek-parser` and `rulewerk-vlog` modules, as it can be seen in the pom.xml file. In turn, `rulewerk-vlog` was used with a locally built `vlog-java` .jar from the [VLog](https://github.com/karmaresearch/vlog) master branch at commit tag [ca0669424963765d08a63a29a0d89e27cf33ef51](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51). To obtain these dependencies, one can locally clone [Rulewerk](https://github.com/knowsys/rulewerk) and run the attached script TODO to build it with the `vlog-java` .jar dependency at this specific commit tag. More details about the installation of  [Rulewerk](https://github.com/knowsys/rulewerk) can be found [here](https://github.com/knowsys/rulewerk#installation).
 
-TODO explain how to obtain that (build-vlog script)
 TODO "release jar" for linux
 
 TODO explain how to run the code
