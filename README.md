@@ -39,7 +39,7 @@ For checking all (implicit and explicit) facts derived after materialisation, on
 ```INFERENCES <path-to-example.rls> <true|false>```
 which will output all these facts in Datalog syntax in a new `.out` file.
 
-To summarize, the sequence of bash commands to execute our tool chainlooks as follows:
+To summarize, the **sequence of bash commands** to execute our tool chain looks as follows:
 
     ./bin/SPASS-SPL -d -n <file>.ftcnf > <file>.rls
     java -jar code-eval-datalog-arithmetic_linux.jar CHECK_QUERY <file>.rls false "Goal(?x0)"
@@ -91,7 +91,7 @@ SPASS-SPL is not yet able to recognize and handle theory constraints beyond simp
 
 SPASS-SPL can transform ftcnf problems into the SMT-LIB 2.6 and into the CHC competition format. The respective options to do so are `-s` and `-c`.
 
-SPASS-SPL can also be used to transform ftcnf problems into the DFG language of SPASS (with the option `-d`) and from DFG with the tool [dfg2tptp](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/bin/dfg2tptp) in the `bin` folder into the tptp format.
+SPASS-SPL can also be used to transform ftcnf problems into the DFG language of SPASS (with the option `-d -p`) and from DFG with the tool [dfg2tptp](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/bin/dfg2tptp) in the `bin` folder into the tptp format.
 
 # Acknowledgements
 
