@@ -23,11 +23,11 @@ Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/
 
 To reproduce our experiments, one can run this jar with the following arguments:
 
-    CHECK_QUERY <path-to-example.rls> false <Goal-query>
+    CHECK_QUERY <path-to-example.rls> false "Goal(?x0)"
 
 For example, for evaluating Benchmark [lc_e1](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/Benchmarks/datalog/lc_e1.rls), one must run
     
-    java -jar code-eval-datalog-arithmetic_linux.jar CHECK_QUERY lc_e1.rls false "Goal(?x0,?x1,?x2)"
+    java -jar code-eval-datalog-arithmetic_linux.jar CHECK_QUERY lc_e1.rls false "Goal(?x0)"
 
 In our experiments we ran Java with the `-Xms8G` option, but the default reserved memory for Java also suffices.
 
