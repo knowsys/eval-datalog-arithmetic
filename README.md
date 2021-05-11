@@ -23,16 +23,16 @@ Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/
 
 To reproduce our experiments, one can run this jar with the following arguments:
 
-    CHECK_QUERY <file>.rls false "Goal(?x0)"
+    CHECK_QUERY <file>.rls false "Goal(?x)"
 
 For example, for evaluating Benchmark [lc_e1](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/Benchmarks/datalog/lc_e1.rls), one must run
     
-    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY lc_e1.rls false "Goal(?x0)"
+    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY Benchmarks/datalog/lc_e1.rls false "Goal(?x)"
 
 In our experiments we ran Java with the `-Xms8G` option, but the default reserved memory for Java also suffices.
 
 For debugging purposes, one can run this program with options
-```CHECK_QUERY <file>.rls true "Goal(?x0)"```
+```CHECK_QUERY <file>.rls true "Goal(?x)"```
 which will output the [VLog](https://github.com/karmaresearch/vlog) engine log at DEBUG level in new `.DEBUG` file.
 
 For checking all (implicit and explicit) facts derived during materialisation, one can run
@@ -42,12 +42,12 @@ which will output all these facts in Datalog syntax in a new `.out` file. If the
 To summarize, the **sequence of bash commands** to execute our tool chain looks as follows:
 
     ./bin/SPASS-SPL -d -n <file>.ftcnf > <file>.rls
-    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY <file>.rls false "Goal(?x0)"
+    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY <file>.rls false "Goal(?x)"
 
 For instance, for the file `Benchmarks/ftcnf/ecu_u1.ftcnf` the commands would be:
 
     ./bin/SPASS-SPL -d -n Benchmarks/ftcnf/ecu_u1.ftcnf > Benchmarks/ftcnf/ecu_u1.rls
-    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY Benchmarks/ftcnf/ecu_u1.rls false "Goal(?x0)"
+    java -jar -Xms8G code-eval-datalog-arithmetic_linux.jar CHECK_QUERY Benchmarks/ftcnf/ecu_u1.rls false "Goal(?x)"
     
 We also precomputed all problems into the various formats and they can be executed directly. For instance, `Benchmarks/datalog/ecu_u1.rls` is the output of `./bin/SPASS-SPL -d -n Benchmarks/ftcnf/ecu_u1.ftcnf`
 
