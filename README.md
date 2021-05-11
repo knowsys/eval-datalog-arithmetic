@@ -76,7 +76,7 @@ SPASS-SPL is not yet able to recognize and handle theory constraints beyond simp
 SPASS-SPL can transform ftcnf problems into the SMT-LIB 2.6 and into the CHC competition format. The respective options to do so are `-s` and `-c`.
 
 
-## Acknowledgements
+# Acknowledgements
 
 This work is partly supported by Deutsche Forschungsgemeinschaft (DFG, German Research Foundation)
 in project number 389792660 (TRR 248, [Center for Perspicuous Systems](https://www.perspicuous-computing.science/)), and by the Bundesministerium für Bildung und Forschung (BMBF, Federal Ministry of Education and Research) in the [Center for Scalable Data Analytics and Artificial Intelligence](https://www.scads.de) (ScaDS.AI).
