@@ -10,7 +10,7 @@ To obtain these dependencies, one can locally clone [Rulewerk](https://github.co
 * Run [script build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) in the `rulewerk` directory (or run the instructions in this file manually).
 * Run `mvn install` in the `rulewerk` directory. This will build  and install the `rulewek-parser` and `rulewerk-vlog` modules in your local Maven repository.
 * You can now use the dependencies installed in the previous step to build the [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) Java Maven project. Run `mvn package` in `code-eval-datalog-arithmetic` directory.
-* You will now find an executable jar named `code-eval-datalog-arithmetic.jar` in `code-eval-datalog-arithmetic\target` directory. 
+* You will now find an executable jar named `code-eval-datalog-arithmetic.jar` in `code-eval-datalog-arithmetic/target` directory. 
 * Run `code-eval-datalog-arithmetic.jar` as shown [here](https://github.com/knowsys/eval-datalog-arithmetic#toolchain) (Alternatively, run Main.java from your prefered IDE).
 
 ## Building evaluation project for Rulewerk version `0.8.0` or higher
