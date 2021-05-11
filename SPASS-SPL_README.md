@@ -10,13 +10,22 @@ Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/
 [The .jar we used to run our experiments](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic_linux.jar) is built for a Linux machine.  Alternatively, one can locally build their own jar (also on MAC OS) using the instructions [here](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/BUILDING-EVAL-JAR_README.md).
 
 To reproduce our experiments, one can run this jar with the following arguments:
-`CHECK_QUERY <path-to-example.rls> false <Goal-query>`.
+
+```CHECK_QUERY <path-to-example.rls> false <Goal-query>```
+
 For example, for evaluating Benchmark [lc_e1](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/Benchmarks/datalog/lc_e1.rls), one must run
-`java -jar code-eval-datalog-arithmetic_linux.jar CHECK_QUERY lc_e1.rls false Goal(?x0,?x1,?x2)`.
 
+```java -jar code-eval-datalog-arithmetic_linux.jar CHECK_QUERY lc_e1.rls false Goal(?x0,?x1,?x2)```
 
+In our experiments we ran Java with the `-Xms8G` option, but the default reserved memory for Java also suffices.
 
-TODO alternative with client
+For debugging purposes, one can run this program with options
+```CHECK_QUERY <path-to-example.rls> true <Goal-query>```
+which will output the [VLog](https://github.com/karmaresearch/vlog) engine log at DEBUG level in new `.DEBUG` file.
+
+For checking all (implicit and explicit) facts derived after materialisation, one can run
+```INFERENCES <path-to-example.rls> <true|false>```
+which will output all these facts in Datalog syntax in a new `.out` file.
 
 ## FTCNF Language
 FTCNF is the input language of SPASS-SPL. It is possible to express any BS(LA) formula in this language. SPASS-SPL has 3 sorts: "R" for Real, "I" for Integer, and "F", which stands for a finite set whose elements are exactly the constants of the sort. Default sort for all variables and constants is "R". Default sort for all predicates with an argument of sort "R" or "I" is "R". Default sort for all predicates with an argument of sort "F" is "F".
