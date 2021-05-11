@@ -13,7 +13,7 @@ To obtain these dependencies, one can locally clone [Rulewerk](https://github.co
 * Run `Main.java` or export an executable jar for [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) with Main-Class `Main.java`.
 
 ## Building evaluation project after [Rulewerk](https://github.com/knowsys/rulewerk) release
-This evaluation was conducted on a development version of [Rulewerk](https://github.com/knowsys/rulewerk) and of [VLog](https://github.com/karmaresearch/vlog). After the release of [Rulewerk](https://github.com/knowsys/rulewerk) `0.8.0` (or higher), one can simply update [code-eval-datalog-arithmetic/pom.xml](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/pom.xml):
+This evaluation was conducted on a development version of [Rulewerk](https://github.com/knowsys/rulewerk)(0.8.0-SNAPSHOT) and of [VLog](https://github.com/karmaresearch/vlog) (commit `ca0669424963765d08a63a29a0d89e27cf33ef51`). After the release of [Rulewerk](https://github.com/knowsys/rulewerk) `0.8.0` (or higher), one can simply update [code-eval-datalog-arithmetic/pom.xml](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/pom.xml):
 
     		<rulewerk.version>0.8.0</rulewerk.version>
 
