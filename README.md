@@ -8,11 +8,15 @@ by Martin Bromberger, Irina Dragoste, Rasha Faqeh, Christof Fetzer, Markus Krö
 
 ## Toolchain
 
-The different steps in our toolchain have to be executed manually. In the first step SPASS-SPL transform an HBS(SLR)PP problem in the FTCNF language into an equisatisfiable HBS problem in the Datalog language, using the [Rulewerk rule syntax](https://github.com/knowsys/rulewerk/wiki/Rule-syntax-grammar). 
+The different steps in our toolchain have to be executed manually. In the first step SPASS-SPL transforms an HBS(SLR)PP problem in the FTCNF language (described below) into an equisatisfiable HBS problem in the Datalog language, using the [Rulewerk rule syntax](https://github.com/knowsys/rulewerk/wiki/Rule-syntax-grammar). 
 
-The bash commands look as follows:
+The bash command looks as follows for universal conjectures:
 
-    ./SPASS-SPL -d -n <file>.ftcnf > <file>.rls
+    ./bin/SPASS-SPL -d -n <file>.ftcnf > <file>.rls
+    
+The bash command looks as follows for existential conjectures:
+
+    ./bin/SPASS-SPL -d <file>.ftcnf > <file>.rls
 
 Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) that uses [Rulewerk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds.
 [The .jar we used to run our experiments](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic_linux.jar) is built for a Linux machine.  Alternatively, one can locally build their own jar (also on MAC OS) using the instructions [here](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/BUILDING-EVAL-JAR_README.md).
@@ -75,6 +79,7 @@ SPASS-SPL is not yet able to recognize and handle theory constraints beyond simp
 
 SPASS-SPL can transform ftcnf problems into the SMT-LIB 2.6 and into the CHC competition format. The respective options to do so are `-s` and `-c`.
 
+SPASS-SPL can also be used to transform ftcnf problems into the DFG language of SPASS (with the option `-d`) and from DFG with the tool `bin/dfg2tptp` into the tptp format.
 
 # Acknowledgements
 
