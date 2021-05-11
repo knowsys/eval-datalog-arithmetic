@@ -1,0 +1,8 @@
+Project [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic)  uses the `0.8.0-SNAPSHOT` version of `rulewek-parser` and `rulewerk-vlog` [Rulewerk](https://github.com/knowsys/rulewerk)  modules, as it can be seen in the [pom.xml](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/pom.xml) file. In turn, `rulewerk-vlog` was used with a locally built `vlog-java.jar` from the [VLog](https://github.com/karmaresearch/vlog) master branch at commit tag [ca0669424963765d08a63a29a0d89e27cf33ef51](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51). 
+
+To obtain these dependencies, one can locally clone [Rulewerk](https://github.com/knowsys/rulewerk) and run the attached [script](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) in the parent folder, in order to build it with the `vlog-java.jar` dependency at this specific commit tag. This script is a modified version of a modified version of the script [build-vlog-library.sh](https://github.com/knowsys/rulewerk/blob/master/build-vlog-library.sh) that is used to build [Rulewerk](https://github.com/knowsys/rulewerk) with a specific version of [VLog](https://github.com/karmaresearch/vlog) (more details [here](https://github.com/knowsys/rulewerk#installation)).
+
+
+
+
+

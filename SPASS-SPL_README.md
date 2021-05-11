@@ -6,13 +6,8 @@ The bash commands look as follows:
 
     ./SPASS-SPL -d -n <file>.ftcnf > <file>.rls
 
-Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) that uses [Rulewrk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds.
+Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) that uses [Rulewerk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds.
 [The .jar we used to run our experiments](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic_linux.jar) is built for a Linux machine.  Alternatively, one can locally build their own jar (also on MAC OS) using the instructions here TODO.
-
-TO MOVE
-This project uses the `0.8.0-SNAPSHOT` version of `rulewek-parser` and `rulewerk-vlog` modules, as it can be seen in the pom.xml file. In turn, `rulewerk-vlog` was used with a locally built `vlog-java.jar` from the [VLog](https://github.com/karmaresearch/vlog) master branch at commit tag [ca0669424963765d08a63a29a0d89e27cf33ef51](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51). To obtain these dependencies, one can locally clone [Rulewerk](https://github.com/knowsys/rulewerk) and run the attached [script](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) to build it with the `vlog-java.jar` dependency at this specific commit tag. This script is a modified version of a modified version of the script [build-vlog-library.sh](https://github.com/knowsys/rulewerk/blob/master/build-vlog-library.sh) that is used to build [Rulewerk](https://github.com/knowsys/rulewerk) with a speciffic version of [VLog](https://github.com/karmaresearch/vlog) (more details [here](https://github.com/knowsys/rulewerk#installation)).
-
-
 
 
 TODO explain how to run the code
