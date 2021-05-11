@@ -5,7 +5,7 @@ To obtain these dependencies, one can locally clone [Rulewerk](https://github.co
 ## Building evaluation project to replicate experiments
 * On a Linux or macOS system, make sure you have Java 1.8 or above and Maven installed, as well as libstdc++-v3.4.22 or above for Linux, or macOS 10.14 or above 
 * Clone [Rulewerk](https://github.com/knowsys/rulewerk) and use version `0.8.0-SNAPSHOT` or above.
-* Increase the version of `vlog-java` (in rulewerk-vlog/pom.xml, `<karmaresearch.vlog.version>` property).
+* Increase the version of `vlog-java` (in `rulewerk-vlog/pom.xml`, `<karmaresearch.vlog.version>` property).
 * Copy [script build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) in the `rulewerk` directory (same level as [build-vlog-library.sh](https://github.com/knowsys/rulewerk/blob/master/build-vlog-library.sh), the parent directory of `rulewek-parser` and `rulewerk-vlog`).
 * Run [script build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) (or run the instructions manually).
 * Run `mvn install`. This will build  and install the `rulewek-parser` and `rulewerk-vlog` modules in your local Maven repository.
