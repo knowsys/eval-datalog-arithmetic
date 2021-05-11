@@ -18,7 +18,7 @@ The bash command looks as follows for existential conjectures:
 
     ./bin/SPASS-SPL -d <file>.ftcnf > <file>.rls
 
-Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) that uses [Rulewerk](https://github.com/knowsys/rulewerk) to load the `.rls` Knowledge Base, materialise it via the Datalog engine [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds.
+Secondly, the Datalog `.rls` file is processed by the [VLog](https://github.com/karmaresearch/vlog) Java API [Rulewrk](https://github.com/knowsys/rulewerk). We created a [small java project](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) that uses [Rulewerk](https://github.com/knowsys/rulewerk) to load the `.rls` file, materialise it via the Datalog engine [VLog](https://github.com/karmaresearch/vlog), and query for a Goal fact. We separately measure parsing, loading, reasoning (materialisation) and querying in miliseconds.
 [The .jar we used to run our experiments](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic_linux.jar) is built for a Linux machine.  Alternatively, one can locally build their own jar (also on  macOS) using the instructions [here](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/BUILDING-EVAL-JAR_README.md).
 
 To reproduce our experiments, one can run this jar with the following arguments:
