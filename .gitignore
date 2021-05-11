@@ -1,10 +1,11 @@
-!code-eval-datalog-arithmetic_linux.jar
 *.class
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
+!code-eval-datalog-arithmetic_linux.jar
 
 # IntelliJ
 .idea/
