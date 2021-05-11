@@ -7,9 +7,9 @@ To obtain these dependencies, one can locally clone [Rulewerk](https://github.co
 * Clone [Rulewerk](https://github.com/knowsys/rulewerk) and use version `0.8.0-SNAPSHOT` or above.
 * Increase the version of `vlog-java` (in `rulewerk-vlog/pom.xml`, `<karmaresearch.vlog.version>` property).
 * Copy [script build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) in the `rulewerk` directory (same level as [build-vlog-library.sh](https://github.com/knowsys/rulewerk/blob/master/build-vlog-library.sh), the parent directory of `rulewek-parser` and `rulewerk-vlog`).
-* Run [script build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) (or run the instructions manually).
-* Run `mvn install`. This will build  and install the `rulewek-parser` and `rulewerk-vlog` modules in your local Maven repository.
-* Use the dependencies installed in the previous step to build the [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) Java Maven project.
+* Run [script build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) in the `rulewerk` directory (or run the instructions in this file manually).
+* Run `mvn install` in the `rulewerk` directory. This will build  and install the `rulewek-parser` and `rulewerk-vlog` modules in your local Maven repository.
+* You can now use the dependencies installed in the previous step to build the [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) Java Maven project. Run `mvn install` in `code-eval-datalog-arithmetic` directory.
 * Run `Main.java` or export an executable jar for [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) with Main-Class `Main.java`.
 
 ## Building evaluation project after [Rulewerk](https://github.com/knowsys/rulewerk) release
