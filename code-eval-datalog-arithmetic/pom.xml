@@ -13,7 +13,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<rulewerk.version>0.8.0-SNAPSHOT</rulewerk.version>
+		<rulewerk.version>0.8.0</rulewerk.version>
 	</properties>
 
 	<dependencies>
