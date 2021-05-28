@@ -4,7 +4,7 @@ For running our evaluation code [eval-datalog-arithmetic](https://github.com/kno
 
    1. Run `mvn package` in `code-eval-datalog-arithmetic` directory. 
    2. You will now find an executable jar named `code-eval-datalog-arithmetic.jar` in `code-eval-datalog-arithmetic/target` directory. 
-   3. Run `code-eval-datalog-arithmetic.jar` as shown [here](https://github.com/knowsys/eval-datalog-arithmetic#toolchain) (Alternatively, run Main.java from your prefered IDE). 
+   3. Run `code-eval-datalog-arithmetic.jar` as shown [here](https://github.com/knowsys/eval-datalog-arithmetic#toolchain) (alternatively, run `Main.java` from your prefered IDE). 
 
 
 Project [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) requires `rulewek-parser` and `rulewerk-vlog` [Rulewerk](https://github.com/knowsys/rulewerk)  modules, as it can be seen in the [pom.xml](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/pom.xml) file. In turn, `rulewerk-vlog` module requires a `vlog-java` [VLog](https://github.com/karmaresearch/vlog) dependency.
