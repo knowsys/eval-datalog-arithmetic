@@ -1,28 +1,21 @@
 # Instructions for building evaluation jar
 
-For running our evaluation code [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) on MacOS, Linux or Windows:
+For running our evaluation code [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) on a MacOS, Linux or Windows machine with Java 1.8 (or above) and [Maven](https://maven.apache.org/guides/getting-started/) installed:
 
-   1. Make sure you have Java 1.8 or above and Maven installed.
-   2. Run `mvn package` in `code-eval-datalog-arithmetic` directory. 
-   3. You will now find an executable jar named `code-eval-datalog-arithmetic.jar` in `code-eval-datalog-arithmetic/target` directory. 
-   4. Run `code-eval-datalog-arithmetic.jar` as shown [here](https://github.com/knowsys/eval-datalog-arithmetic#toolchain) (Alternatively, run Main.java from your prefered IDE). 
-
+   1. Run `mvn package` in `code-eval-datalog-arithmetic` directory. 
+   2. You will now find an executable jar named `code-eval-datalog-arithmetic.jar` in `code-eval-datalog-arithmetic/target` directory. 
+   3. Run `code-eval-datalog-arithmetic.jar` as shown [here](https://github.com/knowsys/eval-datalog-arithmetic#toolchain) (Alternatively, run Main.java from your prefered IDE). 
 
 
 Project [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) requires `rulewek-parser` and `rulewerk-vlog` [Rulewerk](https://github.com/knowsys/rulewerk)  modules, as it can be seen in the [pom.xml](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/pom.xml) file. In turn, `rulewerk-vlog` module requires a `vlog-java` [VLog](https://github.com/karmaresearch/vlog) dependency.
-For [Rulewerk](https://github.com/knowsys/rulewerk) version `0.8.0` or higher, these depencencies can be obtained via Maven as shown here: TODO.
-For obtaining the versions of [Rulewerk](https://github.com/knowsys/rulewerk) and  [VLog](https://github.com/karmaresearch/vlog) used in [the .jar we used to run our experiments](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic_linux.jar), one can follow the steps shown here: TODO 
-
-
-
-
-
+   * For [Rulewerk](https://github.com/knowsys/rulewerk) release version `0.8.0` or higher, these depencencies can be obtained via Maven as shown [here](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/BUILDING-EVAL-JAR_README.md#building-evaluation-project-for-rulewerk-version-080-or-higher).
+   * For obtaining the versions of [Rulewerk](https://github.com/knowsys/rulewerk) and  of [VLog](https://github.com/karmaresearch/vlog) used in [the .jar we used to run our experiments](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic_linux.jar), one can follow the steps shown [here](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/BUILDING-EVAL-JAR_README.md#building-evaluation-project-for-rulewerk-version-080-or-higher). 
 
 ## Building evaluation project with the dependency versions use in evaluation
-Our evaluation was conducted on development versions of [Rulewerk](https://github.com/knowsys/rulewerk)(`0.8.0-SNAPSHOT`, commit  `89ace929324f9b527c56082c352af54f91f82cae`) and of [VLog](https://github.com/karmaresearch/vlog) (commit [`ca0669424963765d08a63a29a0d89e27cf33ef51`](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51)). 
-In our experiments, `rulewerk-vlog` (at commit  `89ace929324f9b527c56082c352af54f91f82cae`) was used with a locally built `vlog-java.jar`dependency from the [VLog](https://github.com/karmaresearch/vlog) master branch at commit tag [ca0669424963765d08a63a29a0d89e27cf33ef51](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51). 
+Our evaluation was conducted on development versions of [Rulewerk](https://github.com/knowsys/rulewerk)(`0.8.0-SNAPSHOT`, commit  [`89ace929324f9b527c56082c352af54f91f82cae`](https://github.com/knowsys/rulewerk/commit/89ace929324f9b527c56082c352af54f91f82cae)) and of [VLog](https://github.com/karmaresearch/vlog) (commit [`ca0669424963765d08a63a29a0d89e27cf33ef51`](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51)). 
+In our experiments, `rulewerk-vlog` was used with a locally built `vlog-java.jar`dependency from the VLog master branch at commit tag [ca0669424963765d08a63a29a0d89e27cf33ef51](https://github.com/karmaresearch/vlog/commit/ca0669424963765d08a63a29a0d89e27cf33ef51). 
 
-To obtain these dependencies, one can locally clone [Rulewerk](https://github.com/knowsys/rulewerk) and run the attached [script](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh), in order to build it with the `vlog-java.jar` dependency at this specific commit tag. This script is a modified version of a modified version of the script [build-vlog-library.sh](https://github.com/knowsys/rulewerk/blob/master/build-vlog-library.sh) that is used to build [Rulewerk](https://github.com/knowsys/rulewerk) with a snapshot version of [VLog](https://github.com/karmaresearch/vlog) (more details [here](https://github.com/knowsys/rulewerk#installation)).
+To obtain these dependencies, one can locally clone [Rulewerk](https://github.com/knowsys/rulewerk), checkout commit [`89ace929324f9b527c56082c352af54f91f82cae`](https://github.com/knowsys/rulewerk/commit/89ace929324f9b527c56082c352af54f91f82cae), and run the attached [script](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) in order to build it with the `vlog-java.jar` dependency at this specific commit tag. This script is a modified version of a modified version of the script [build-vlog-library.sh](https://github.com/knowsys/rulewerk/blob/master/build-vlog-library.sh) that is used to build [Rulewerk](https://github.com/knowsys/rulewerk) with a snapshot version of [VLog](https://github.com/karmaresearch/vlog) (more details [here](https://github.com/knowsys/rulewerk#installation)).
 
 
 * On a Linux or macOS system, make sure you have libstdc++-v3.4.22 or above for Linux, or macOS 10.14 or above 
@@ -33,7 +26,7 @@ To obtain these dependencies, one can locally clone [Rulewerk](https://github.co
 * Run [script build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/build-vlog-library-ca0669424963765d08a63a29a0d89e27cf33ef51.sh) in the `rulewerk` directory (or run the instructions in this file manually).
 * Run `mvn install` in the `rulewerk` directory. This will build  and install the `rulewek-parser` and `rulewerk-vlog` modules in your local Maven repository.
 * You can now use the dependencies installed in the previous step to build the [eval-datalog-arithmetic](https://github.com/knowsys/eval-datalog-arithmetic/tree/main/code-eval-datalog-arithmetic) Java Maven project.
-* Run steps 1-4 TODO
+* Run steps [1-3](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/BUILDING-EVAL-JAR_README.md#instructions-for-building-evaluation-jar).
 
 ## Building evaluation project for Rulewerk version `0.8.0` or higher
 
@@ -43,5 +36,5 @@ For [Rulewerk](https://github.com/knowsys/rulewerk) version `0.8.0` (or higher),
 
     		<rulewerk.version>[version >= 0.8.0]</rulewerk.version>
 
-Then, the instructions 1-4 TODO can be executed to build the evaluation jar.
+Then, the instructions [1-3](https://github.com/knowsys/eval-datalog-arithmetic/blob/main/code-eval-datalog-arithmetic/BUILDING-EVAL-JAR_README.md#instructions-for-building-evaluation-jar) can be executed to build the evaluation jar.
 
